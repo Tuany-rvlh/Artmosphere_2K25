@@ -194,6 +194,7 @@ O modelo `best (4).pt` contém metadados que indicam uma arquitetura **YOLOv8** 
 <details>
 <summary><strong>Mostrar ou ocultar as instruções de instalação e execução</strong></summary>
 
+<br>
 
 O ambiente documentado pela equipe e refletido no código é o **Windows**: o programa usa o modo de captura `CAP_DSHOW`, do Windows, e o guia de execução cita o Prompt de Comando e o IDLE (Python 3.12, 64 bits). Em outros sistemas, o código precisaria de ajustes, que não foram verificados.
 
@@ -341,6 +342,5 @@ As bibliotecas, ferramentas e demais componentes de terceiros permanecem sujeito
 ---
 
 <p align="center">
-  <strong>Artmosphere · 2206MT · PROJETE 2025</strong><br>
-  Desenhe com magia. Tecnologia que transforma movimento em arte.
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:240046,20:5A189A,40:1D4ED8,60:FACC15,80:F97316,100:C77DFF&height=150&section=footer&text=Artmosphere&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=65" alt="Onda colorida Artmosphere em roxo, azul, amarelo e laranja" width="100%">
 </p>
