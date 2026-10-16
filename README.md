@@ -27,13 +27,37 @@
 
 <a id="projeto"></a>
 
-## Uma ideia para transformar movimento em desenho
+## 💜 Uma ideia para transformar movimento em desenho
 
-O Artmosphere foi criado para contribuir com um desafio: tornar a experiência de desenhar mais interativa e acessível, incentivando a prática de movimentos precisos de um jeito lúdico. Em vez de depender de papel ou de uma tela sensível ao toque, a pessoa desenha movimentando uma varinha no ar. A proposta é estimular a **coordenação motora fina**, a concentração, a percepção espacial e a criatividade, com possibilidades de uso em atividades educacionais e inclusivas.
+O **Artmosphere** foi criado para tornar a experiência de desenhar mais interativa, acessível e divertida, incentivando a prática de movimentos precisos de maneira lúdica. Em vez de depender de papel, mouse ou de uma tela sensível ao toque, a pessoa utiliza uma varinha para desenhar no ar, enquanto uma webcam captura seus movimentos e os transforma em traços digitais.
 
-O projeto combina **visão computacional, inteligência artificial, programação e eletrônica** para transformar o movimento real em um traço digital.
+A proposta é estimular a **coordenação motora fina**, a concentração, a percepção espacial e a criatividade, oferecendo possibilidades de aplicação em atividades educacionais e inclusivas.
 
-> **O emblema é essencial para desenhar.** Ele precisa aparecer na imagem capturada pela webcam para que o modelo de inteligência artificial consiga reconhecê-lo. Quando o emblema está visível e é detectado, o programa acompanha sua posição e transforma o movimento em desenho. Se ele não aparecer corretamente na câmera, o sistema pode não conseguir desenhar.
+O projeto combina **visão computacional, inteligência artificial, programação e eletrônica** para conectar os movimentos realizados no mundo real à criação artística digital.
+
+---
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/🏆%20CONQUISTA-VIEIRA%20GAMES-9D4EDD?style=for-the-badge" />
+
+# 🚀 DO PROJETE PARA SALVADOR!
+
+### O Artmosphere também chegou à VIEIRA GAMES, em Salvador — BA
+
+</div>
+
+Além da participação na feira **PROJETE**, o Artmosphere teve a oportunidade de chegar à **VIEIRA GAMES, em Salvador**, levando sua proposta de unir tecnologia, criatividade e movimento para além do ambiente escolar.
+
+Essa participação representa uma conquista importante para a equipe, valorizando o desenvolvimento do projeto e ampliando as oportunidades de apresentar a ideia a novos públicos.
+
+<div align="center">
+
+**💫 Tecnologia, criatividade e movimento em um só projeto!**
+
+</div>
+
+---
 
 ### O que o repositório reúne
 
