@@ -33,12 +33,6 @@ No Artmosphere, a caneta é uma **varinha mágica**. Uma webcam acompanha a pont
 
 O projeto nasceu como uma experiência interativa que reúne **visão computacional, programação e eletrônica**. Segundo a proposta do grupo, atividades que pedem movimentos precisos e retorno visual imediato contribuem para a **coordenação motora fina**, a concentração, a percepção espacial e a criatividade, e podem ser úteis em contextos educacionais e inclusivos.
 
-<p align="center">
-  <img src="Documentos/readme/adesivo-artmosphere-2206mt.jpg" alt="Adesivo circular do projeto Artmosphere 2206MT, com o logotipo em amarelo sobre fundo azul e uma varinha com estrela" width="320">
-</p>
-
-<p align="center"><sub>Adesivo do projeto, produzido pela equipe.</sub></p>
-
 ### O que o repositório reúne
 
 | Parte                  | O que é                                                                                          | Onde está                                                  |
