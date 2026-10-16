@@ -27,18 +27,20 @@
 
 <a id="projeto"></a>
 
-## Desenhar sem tocar em nada
+## Uma ideia para transformar movimento em desenho
 
-No Artmosphere, a caneta é uma **varinha mágica**. Uma webcam acompanha a ponta da varinha, um modelo de inteligência artificial a localiza em cada quadro e o programa liga os pontos detectados em um traço sobre uma tela branca. Basta mover a varinha no ar para ver o desenho aparecer.
+O Artmosphere foi criado para contribuir com um desafio: tornar a experiência de desenhar mais interativa e acessível, incentivando a prática de movimentos precisos de um jeito lúdico. Em vez de depender de papel ou de uma tela sensível ao toque, a pessoa desenha movimentando uma varinha no ar. A proposta é estimular a **coordenação motora fina**, a concentração, a percepção espacial e a criatividade, com possibilidades de uso em atividades educacionais e inclusivas.
 
-O projeto nasceu como uma experiência interativa que reúne **visão computacional, programação e eletrônica**. Segundo a proposta do grupo, atividades que pedem movimentos precisos e retorno visual imediato contribuem para a **coordenação motora fina**, a concentração, a percepção espacial e a criatividade, e podem ser úteis em contextos educacionais e inclusivos.
+O projeto combina **visão computacional, inteligência artificial, programação e eletrônica** para transformar o movimento real em um traço digital.
+
+> **O emblema é essencial para desenhar.** Ele precisa aparecer na imagem capturada pela webcam para que o modelo de inteligência artificial consiga reconhecê-lo. Quando o emblema está visível e é detectado, o programa acompanha sua posição e transforma o movimento em desenho. Se ele não aparecer corretamente na câmera, o sistema pode não conseguir desenhar.
 
 ### O que o repositório reúne
 
 | Parte                  | O que é                                                                                          | Onde está                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
 | **Software de desenho** | Programa em Python que detecta a ponta da varinha pela webcam e desenha em tela cheia.           | [`Software/artmosphere/projete2206.py`](Software/artmosphere/projete2206.py) |
-| **Modelo de detecção**  | Modelo YOLO treinado para reconhecer uma única classe, a ponta da varinha (`ponta_varinha`).      | [`Software/artmosphere/best (4).pt`](Software/artmosphere/best%20%284%29.pt) |
+| **Modelo de detecção**  | Modelo YOLO treinado para reconhecer o marcador visual da varinha (`ponta_varinha`), chamado de emblema neste README.      | [`Software/artmosphere/best (4).pt`](Software/artmosphere/best%20%284%29.pt) |
 | **Protótipo físico**    | Firmware Arduino Mega que controla RFID, display gráfico, LEDs, botões, cronômetro e áudio.      | [`Hardware/Hardware.ino`](Hardware/Hardware.ino)           |
 | **Guia de execução**    | Documento da equipe sobre como colocar a programação para funcionar.                             | [`Software/artmosphere/rodar_programacao.pdf`](Software/artmosphere/rodar_programacao.pdf) |
 
@@ -46,9 +48,9 @@ O projeto nasceu como uma experiência interativa que reúne **visão computacio
 
 <a id="software"></a>
 
-## Do movimento ao traço
+## Como funciona
 
-O programa abre a webcam, espelha a imagem e, a cada quadro, pede ao modelo YOLO que encontre a ponta da varinha. O centro da caixa detectada vira um ponto na tela de desenho, e os pontos consecutivos são ligados por linhas.
+O programa abre a webcam, espelha a imagem e, a cada quadro, pede ao modelo YOLO que reconheça o emblema da varinha. **Mantenha o emblema visível dentro do campo de visão da câmera:** é ele que permite ao sistema localizar a varinha. O centro da área detectada vira um ponto na tela, e os pontos consecutivos são ligados para formar o desenho.
 
 ```mermaid
 flowchart LR
@@ -76,7 +78,7 @@ flowchart LR
 | **3 · Converter**           | Calcula o centro da caixa e o converte para as coordenadas da tela de desenho de 1280 × 720.                                                   |
 | **4 · Desenhar**            | Liga os pontos sucessivos com linhas pretas de 2 pixels. Se a detecção falha, mantém a última posição por até 5 quadros antes de encerrar o traço. |
 | **5 · Limpar**              | Quando a ponta toca o botão virtual **LIMPAR**, o desenho é apagado. Há um intervalo mínimo de 0,5 s entre duas limpezas.                       |
-| **6 · Exibir**              | Mostra tudo em uma janela de tela cheia chamada `Paint`, com a miniatura da webcam no canto inferior direito e um ponto vermelho sobre a ponta detectada. |
+| **6 · Exibir**              | Mostra tudo em uma janela de tela cheia chamada `Paint`, com a miniatura da webcam no canto inferior direito e um marcador sobre o emblema detectado. |
 
 Pressione **Q** a qualquer momento para encerrar o programa.
 
@@ -87,8 +89,7 @@ Pressione **Q** a qualquer momento para encerrar o programa.
 | **Área de desenho**         | Fundo branco de 1280 × 720 pixels, em janela de tela cheia.                   |
 | **Botão LIMPAR**            | Retângulo cinza com texto branco, no **canto inferior esquerdo** da tela.     |
 | **Miniatura da webcam**     | Imagem de 240 × 180 pixels no **canto inferior direito**.                     |
-| **Marcador da ponta**       | Ponto vermelho desenhado sobre a miniatura, na posição detectada.             |
-| **Cor e espessura do traço** | Preto, com 2 pixels.                                                          |
+| **Marcador de detecção**    | Ponto que indica a posição reconhecida na miniatura da webcam.                 |
 
 <a id="hardware"></a>
 
@@ -167,9 +168,9 @@ Os identificadores das tags estão declarados no próprio firmware. Para usar ou
   <img src="Documentos/readme/emblema-artmosphere.png" alt="Emblema do Artmosphere: estrela amarela sobre círculo laranja" width="200">
 </p>
 
-<p align="center"><sub>Emblema do Artmosphere: a estrela amarela sobre o círculo laranja acompanha o projeto em todos os materiais.</sub></p>
+<p align="center"><sub>O emblema é o marcador visual que a webcam precisa reconhecer para permitir o desenho.</sub></p>
 
-A identidade visual do projeto combina o **azul-noturno** do fundo, o **laranja** do emblema, o **amarelo** da estrela e do logotipo e o **roxo** da varinha.
+**Como usar:** coloque o emblema diante da webcam e mantenha-o visível. O programa detecta sua posição; ao mover a varinha, o traço acompanha o movimento. O emblema não é apenas decorativo: ele é a referência visual necessária para desenhar.
 
 ## Tecnologias com uma função definida
 
@@ -184,11 +185,15 @@ A identidade visual do projeto combina o **azul-noturno** do fundo, o **laranja*
 | **RFID**                  | Biblioteca RDM6300                  | Leitura das tags pelo módulo RDM6300.                                  |
 | **Áudio**                 | Biblioteca DFRobotDFPlayerMini      | Reprodução dos sons pelo DFPlayer Mini.                                |
 
-O modelo `best (4).pt` contém metadados que indicam uma arquitetura **YOLOv8** com uma única classe, `ponta_varinha`.
+O modelo `best (4).pt` contém metadados que indicam uma arquitetura **YOLOv8** com uma única classe, `ponta_varinha`. Na prática, essa classe representa o emblema que deve aparecer na webcam para que o desenho funcione.
 
 <a id="instalacao"></a>
 
 ## Coloque o Artmosphere para funcionar
+
+<details>
+<summary><strong>Mostrar ou ocultar as instruções de instalação e execução</strong></summary>
+
 
 O ambiente documentado pela equipe e refletido no código é o **Windows**: o programa usa o modo de captura `CAP_DSHOW`, do Windows, e o guia de execução cita o Prompt de Comando e o IDLE (Python 3.12, 64 bits). Em outros sistemas, o código precisaria de ajustes, que não foram verificados.
 
@@ -248,7 +253,7 @@ cd Software\artmosphere
 python projete2206.py
 ```
 
-Ou abra `projete2206.py` no IDLE e use **Run → Run Module** (F5). Aponte a varinha para a câmera: a janela `Paint` abre em tela cheia, e o desenho aparece conforme a ponta é detectada. Para apagar, toque o botão **LIMPAR**. Para sair, pressione **Q**.
+Ou abra `projete2206.py` no IDLE e use **Run → Run Module** (F5). Aponte a varinha para a câmera e garanta que o emblema esteja visível: a janela `Paint` abre em tela cheia, e o desenho aparece conforme o emblema é detectado. Para apagar, toque o botão **LIMPAR**. Para sair, pressione **Q**.
 
 ### 6. Protótipo físico (opcional)
 
@@ -259,15 +264,14 @@ Ou abra `projete2206.py` no IDLE e use **Run → Run Module** (F5). Aponte a var
 
 O firmware chama as faixas de áudio **1**, **2** e **3** do DFPlayer Mini; os arquivos de som não fazem parte do repositório. Se o DFPlayer não for inicializado, o firmware interrompe a execução e escreve uma mensagem de erro no monitor serial. O funcionamento físico depende da montagem, das conexões elétricas e da alimentação correta dos componentes.
 
-<details>
-<summary><strong>Se algo não funcionar: verificações por sintoma</strong></summary>
+### Se algo não funcionar: verificações por sintoma
 
 | Sintoma                                      | O que conferir                                                                                          |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `ModuleNotFoundError` ao executar            | Confirme a instalação com `pip install opencv-python numpy ultralytics` no mesmo Python que executa o programa. |
 | Erro de arquivo não encontrado para o modelo | Revise o caminho da linha 7, incluindo o nome `best (4).pt`.                                             |
 | O programa abre e fecha imediatamente        | A webcam não foi lida: ajuste o índice da câmera (linha 8) e feche outros programas que a usem.         |
-| A varinha não é detectada                    | Melhore a iluminação e posicione a ponta da varinha de frente para a câmera. O modelo usa confiança mínima de 0,25. |
+| O emblema não é detectado                    | Mantenha o emblema visível dentro do enquadramento, melhore a iluminação e evite ocultá-lo. O modelo usa confiança mínima de 0,25. |
 | Os traços ficam saltados                     | A detecção perde a ponta por mais de 5 quadros seguidos, e o traço atual é encerrado.                   |
 | Tela do Arduino sem imagem ou travada        | Confira a pinagem do display KS0108 e a alimentação do conjunto.                                        |
 | Arduino interrompido na partida              | O DFPlayer Mini não inicializou: verifique a conexão em `Serial2` e o cartão de memória.                |
@@ -287,7 +291,8 @@ Artmosphere_2K25/
 │       ├── artmosphere-capa.png
 │       ├── logo-artmosphere-2206mt.png
 │       ├── emblema-artmosphere.png
-│       └── adesivo-artmosphere-2206mt.jpg
+│       ├── adesivo-artmosphere-2206mt.jpg
+│       └── artmosphere-footer.svg                 Faixa animada do rodapé
 ├── Hardware/
 │   └── Hardware.ino                     Firmware do Arduino Mega
 └── Software/
